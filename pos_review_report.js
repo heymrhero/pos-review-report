@@ -458,7 +458,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '  </script>\n' +
     '  <style>\n' +
     '    .container { max-width: 1020px; margin: 0 auto; padding: 20px; }\n' +
-    '    .report-header { background: linear-gradient(135deg, #4a7c59 0%, #2d5a3d 100%); color: white; padding: 28px 30px; border-radius: 12px; margin-bottom: 20px; }\n' +
+    '    .report-header { background: #636E4B; color: white; padding: 28px 30px; border-radius: 12px; margin-bottom: 20px; }\n' +
     '    .report-header h1 { font-size: 17px; margin-bottom: 4px; }\n' +
     '    .report-header .date { font-size: 12px; opacity: 0.85; }\n' +
     '    .tab-nav { display: flex; gap: 8px; margin-bottom: 20px; background: white; padding: 8px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n' +
@@ -515,7 +515,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
       .tab-btn { font-size: 12px; padding: 6px 0; }
       .store-section { padding: 14px 12px; }
       .summary-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-      .summary-card { padding: 10px 6px; }
+      .summary-card { padding: 10px 6px; grid-column: span 1 !important; }
       .store-stats { grid-template-columns: repeat(3, 1fr); gap: 6px; }
       .stat-card { padding: 8px 4px; }
       .review-item { padding: 10px 12px; }
