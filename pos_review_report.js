@@ -393,9 +393,9 @@ function generateReport(allReviews, baseDate, dateRanges) {
 
     return '<div class="tab-content" id="tab-' + tabKey + '">' +
       '<div class="period-hint">统计区间：' + range.start + ' ~ ' + range.end + '</div>' +
-      '<div class="summary-cards">' +
-      '<div class="summary-card summary-half"><div class="value">' + gs.total + '</div><div class="label">评价总数</div></div>' +
-      '<div class="summary-card card-rating summary-half"><div class="value">' + gs.avgRating + '</div><div class="label">平均评分</div></div>' +
+      '<div class="summary-row summary-row-1">' +
+      '<div class="summary-card"><div class="value">' + gs.total + '</div><div class="label">评价总数</div></div>' +
+      '<div class="summary-card card-rating"><div class="value">' + gs.avgRating + '</div><div class="label">平均评分</div></div>' +
       '<div class="summary-card card-positive"><div class="value">' + gs.positive + '</div><div class="label">好评</div></div>' +
       '<div class="summary-card card-neutral"><div class="value">' + gs.neutral + '</div><div class="label">中评</div></div>' +
       '<div class="summary-card card-negative"><div class="value">' + gs.negative + '</div><div class="label">差评</div></div>' +
@@ -468,14 +468,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '    .period-hint { font-size: 12px; color: #aaa; margin-bottom: 16px; }\n' +
     '    .tab-content { display: none; }\n' +
     '    .tab-content.show { display: block; }\n' +
-    '    .summary-cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 20px; }\n' +
-    '    .summary-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n' +
-    '    .summary-card.summary-half { grid-column: span 3; }\n' +
-    '    .summary-card.card-positive { grid-column: span 2; }\n' +
-    '    .summary-card.card-neutral { grid-column: span 2; }\n' +
-    '    .summary-card.card-negative { grid-column: span 2; }\n' +
-    '    .summary-card .value { font-size: 22px; font-weight: 700; color: #333; }\n' +
-    '    .summary-card .label { font-size: 11px; color: #888; margin-top: 2px; }\n' +
+    '    .summary-row { display: grid; gap: 12px; margin-bottom: 10px; }\n' +\n    '    .summary-row-1 { grid-template-columns: repeat(2, 1fr); }\n' +\n    '    .summary-row-2 { grid-template-columns: repeat(3, 1fr); }\n' +\n    '    .summary-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center;\n' +\n    '     box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n' +\n    '    .summary-card .label { font-size: 11px; color: #888; margin-top: 2px; }\n' +
     '    .summary-card.card-positive .value { color: #52c41a; }\n' +
     '    .summary-card.card-neutral .value { color: #faad14; }\n' +
     '    .summary-card.card-negative .value { color: #ff4d4f; }\n' +
