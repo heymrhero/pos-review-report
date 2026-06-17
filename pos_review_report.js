@@ -11,12 +11,20 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
+const COS = require('cos-nodejs-sdk-v5');
 const https = require('https');
 
 const USERNAME = process.env.POS_USERNAME || '15611381213';
 const PASSWORD = process.env.POS_PASSWORD || '130423';
 const WECOM_WEBHOOK = process.env.WECOM_WEBHOOK || '';
 const COS_BASE_URL = process.env.COS_BASE_URL || 'https://tools.mrhero.cn/review_report.html';
+
+// COS 上传配置（可选，通过环境变量设置）
+const COS_SECRET_ID = process.env.COS_SECRET_ID || '';
+const COS_SECRET_KEY = process.env.COS_SECRET_KEY || '';
+const COS_BUCKET = 'mrhero-1252461064';
+const COS_REGION = 'ap-hongkong';
+const COS_UPLOAD_KEY = 'review_report.html';
 const REPORT_DATE = process.env.REPORT_DATE || new Date().toISOString().split('T')[0];
 const LOGIN_URL = 'https://zhyx.eingdong.com/console/#/login';
 const API_BASE = 'https://zhyx.eingdong.com/service/index.php';
