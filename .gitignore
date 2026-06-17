@@ -1,0 +1,3 @@
+node_modules/
+pos_auth_state.json
+*.log

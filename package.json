@@ -1,0 +1,12 @@
+{
+  "name": "pos-review-report",
+  "version": "1.0.0",
+  "description": "每日英雄POS后台用户评价自动抓取报表",
+  "main": "pos_review_report.js",
+  "scripts": {
+    "start": "node pos_review_report.js"
+  },
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}
