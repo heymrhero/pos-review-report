@@ -1,12 +1,13 @@
 {
   "name": "pos-review-report",
   "version": "1.0.0",
-  "description": "每日英雄POS后台评价自动抓取与报表生成",
+  "description": "\u6bcf\u65e5\u82f1\u96c4POS\u540e\u53f0\u8bc4\u4ef7\u81ea\u52a8\u6293\u53d6\u4e0e\u62a5\u8868\u751f\u6210",
   "main": "pos_review_report.js",
   "scripts": {
     "start": "node pos_review_report.js"
   },
   "dependencies": {
-    "playwright": "^1.40.0"
+    "playwright": "^1.40.0",
+    "cos-nodejs-sdk-v5": "^2.14.4"
   }
 }
