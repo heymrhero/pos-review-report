@@ -2,7 +2,7 @@ name: 每日英雄评价日报
 
 on:
   schedule:
-    - cron: '30 0 * * *'
+    - cron: '30 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -26,6 +26,7 @@ jobs:
           POS_USERNAME: ${{ secrets.POS_USERNAME }}
           POS_PASSWORD: ${{ secrets.POS_PASSWORD }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
+          COS_BASE_URL: ${{ secrets.COS_BASE_URL }}
         run: node pos_review_report.js
 
       - uses: actions/upload-artifact@v4
