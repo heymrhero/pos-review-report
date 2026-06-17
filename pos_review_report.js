@@ -529,7 +529,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '    </div>\n' +
     '    <div class="tab-nav">' + tabBtnsHtml + '</div>\n' +
     '    ' + tabContentsHtml + '\n' +
-    '    <div class="footer">报表自动生成 · 数据来源：胡岩的龙虾Bot</div>\n' +
+    '    <div class="footer">报表自动生成<br>数据来源：胡岩的龙虾Bot</div>\n' +
     '  </div>\n' +
     '  <script>\n' +
     '    function switchTab(event, key) {\n' +
