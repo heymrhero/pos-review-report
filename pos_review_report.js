@@ -382,7 +382,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
       const filtered = data.reviews.filter(r => inRange(r.addTime, range.start, range.end));
       const s = calcStats(filtered);
       return '<tr style="border-bottom:1px solid #eee;">' +
-        '<td style="padding:10px;">' + data.storeInfo.name + '<br><small style="color:#888;">' + data.storeInfo.address + '</small></td>' +
+        '<td style="padding:10px;">' + data.storeInfo.name + '</td>' +
         '<td style="padding:10px;text-align:center;">' + s.total + '</td>' +
         '<td style="padding:10px;text-align:center;color:#52c41a;font-weight:600">' + s.positive + '</td>' +
         '<td style="padding:10px;text-align:center;color:#faad14;font-weight:600">' + s.neutral + '</td>' +
