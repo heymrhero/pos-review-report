@@ -464,7 +464,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '    .tab-nav { display: flex; gap: 8px; margin-bottom: 20px; background: white; padding: 8px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n' +
     '    .tab-btn { flex: 1; padding: 8px 0; border: none; background: transparent; border-radius: 7px; font-size: 13px; font-weight: 500; color: #666; cursor: pointer; transition: all 0.2s; }\n' +
     '    .tab-btn:hover { background: #f0f2f5; color: #333; }\n' +
-    '    .tab-btn.active { background: #4a7c59; color: white; }\n' +
+    '    .tab-btn.active { background: #636E4B; color: white; }\n' +
     '    .period-hint { font-size: 12px; color: #aaa; margin-bottom: 16px; }\n' +
     '    .tab-content { display: none; }\n' +
     '    .tab-content.show { display: block; }\n' +
