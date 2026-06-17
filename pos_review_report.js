@@ -503,7 +503,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '
     @media (max-width: 600px) {
       .container { padding: 10px; }
-      .report-header { padding: 18px 14px; }
+      .report-header { padding: 16px 14px; flex-direction: column; align-items: flex-start; gap: 6px; }\n' +\n      '      .report-header h1 { font-size: 15px; }
       .tab-nav { padding: 5px; gap: 4px; }
       .tab-btn { font-size: 12px; padding: 6px 0; }
       .store-section { padding: 14px 12px; }
