@@ -514,8 +514,12 @@ function generateReport(allReviews, baseDate, dateRanges) {
       .tab-nav { padding: 5px; gap: 4px; }
       .tab-btn { font-size: 12px; padding: 6px 0; }
       .store-section { padding: 14px 12px; }
-      .summary-cards { grid-template-columns: repeat(6, 1fr); gap: 6px; }
+      .summary-row { gap: 6px; }
+      .summary-row-1 { grid-template-columns: repeat(2, 1fr); }
+      .summary-row-2 { grid-template-columns: repeat(3, 1fr); }
       .summary-card { padding: 10px 4px; }
+      .summary-card .value { font-size: 18px; }
+      .summary-card .label { font-size: 10px; }
       .store-stats { grid-template-columns: repeat(3, 1fr); gap: 6px; }
       .stat-card { padding: 8px 4px; }
       .review-item { padding: 10px 12px; }
