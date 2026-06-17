@@ -482,7 +482,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '    .summary-card.card-rating .value { color: #faad14; }\n' +
     '    .store-section { background: white; border-radius: 10px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n' +
     '    .store-title { font-size: 15px; color: #222; margin-bottom: 4px; }\n' +
-    '    .store-address { font-size: 11px; color: #999; margin-bottom: 14px; }\n' +
+    '    \n' +
     '    .store-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }\n' +
     '    .stat-card { background: #f8f9fa; border-radius: 8px; padding: 10px; text-align: center; }\n' +
     '    .stat-card .stat-value { font-size: 17px; font-weight: 700; color: #333; }\n' +
@@ -507,7 +507,21 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '    .reply { background: #f5f5f5; border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 13px; color: #666; }\n' +
     '    .no-data { text-align: center; padding: 36px; color: #bbb; font-size: 15px; }\n' +
     '    .footer { text-align: center; padding: 18px; color: #ccc; font-size: 12px; }\n' +
-    '  </style>\n</head>\n<body>\n' +
+    '
+    @media (max-width: 600px) {
+      .container { padding: 10px; }
+      .report-header { padding: 18px 14px; }
+      .tab-nav { padding: 5px; gap: 4px; }
+      .tab-btn { font-size: 12px; padding: 6px 0; }
+      .store-section { padding: 14px 12px; }
+      .summary-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .summary-card { padding: 10px 6px; }
+      .store-stats { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .stat-card { padding: 8px 4px; }
+      .review-item { padding: 10px 12px; }
+      th, td { padding: 6px 4px !important; font-size: 12px; }
+    }
+  </style>\n</head>\n<body>\n' +
     '  <div class="container">\n' +
     '    <div class="report-header">\n' +
     '      <h1>📊 每日英雄 · 用户评价报表</h1>\n' +
