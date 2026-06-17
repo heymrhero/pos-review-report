@@ -16,7 +16,7 @@ const https = require('https');
 const USERNAME = process.env.POS_USERNAME || '15611381213';
 const PASSWORD = process.env.POS_PASSWORD || '130423';
 const WECOM_WEBHOOK = process.env.WECOM_WEBHOOK || '';
-const COS_BASE_URL = process.env.COS_BASE_URL || 'https://tools.mrhero.cn';
+const COS_BASE_URL = process.env.COS_BASE_URL || 'https://tools.mrhero.cn/review_report.html';
 const REPORT_DATE = process.env.REPORT_DATE || new Date().toISOString().split('T')[0];
 const LOGIN_URL = 'https://zhyx.eingdong.com/console/#/login';
 const API_BASE = 'https://zhyx.eingdong.com/service/index.php';
@@ -221,7 +221,7 @@ function inRange(addTime, start, end) {
 
 async function pushToWecom(allReviews, baseDate, dateRanges, outputPath) {
   const filename = path.basename(outputPath);
-  const reportUrl = COS_BASE_URL + '/' + filename + '?from=wecom';
+  const reportUrl = COS_BASE_URL + '?from=wecom';
 
   const storeNames = {
     '67809': '仁恒', '67815': '梅江', '67816': '彩柒',
