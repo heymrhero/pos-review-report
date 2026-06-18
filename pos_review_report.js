@@ -494,11 +494,15 @@ function generateReport(allReviews, baseDate, dateRanges) {
             <span class="store-toggle">点击展开 ▾</span>
           </div>
           <div class="store-stats">
-            <div class="stat-card"><div class="stat-value">${s.total}</div><div class="stat-label">评价总数</div></div>
-            <div class="stat-card stat-good"><div class="stat-value">${s.positive}</div><div class="stat-label">好评</div></div>
-            <div class="stat-card stat-ok"><div class="stat-value">${s.neutral}</div><div class="stat-label">中评</div></div>
-            <div class="stat-card stat-bad"><div class="stat-value">${s.negative}</div><div class="stat-label">差评</div></div>
-            <div class="stat-card"><div class="stat-value">${s.avgRating}</div><div class="stat-label">平均评分</div></div>
+            <div class="store-stats-row store-stats-row-1">
+              <div class="stat-card"><div class="stat-value">${s.total}</div><div class="stat-label">评价总数</div></div>
+              <div class="stat-card"><div class="stat-value">${s.avgRating}</div><div class="stat-label">平均评分</div></div>
+            </div>
+            <div class="store-stats-row store-stats-row-2">
+              <div class="stat-card stat-good"><div class="stat-value">${s.positive}</div><div class="stat-label">好评</div></div>
+              <div class="stat-card stat-ok"><div class="stat-value">${s.neutral}</div><div class="stat-label">中评</div></div>
+              <div class="stat-card stat-bad"><div class="stat-value">${s.negative}</div><div class="stat-label">差评</div></div>
+            </div>
           </div>
           <div class="reviews-list" style="display:none">${reviewsHtml}</div>
         </div>`);
@@ -623,7 +627,10 @@ function generateReport(allReviews, baseDate, dateRanges) {
     .store-title { font-size: 15px; color: #222; margin: 0; }
     .store-toggle { font-size: 12px; color: #636E4B; white-space: nowrap; flex-shrink: 0; transition: color 0.2s; }
     .store-section.expanded .store-header { padding-bottom: 4px; }
-    .store-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+    .store-stats { margin-bottom: 18px; }
+    .store-stats-row { display: grid; gap: 10px; margin-bottom: 8px; }
+    .store-stats-row-1 { grid-template-columns: repeat(2, 1fr); }
+    .store-stats-row-2 { grid-template-columns: repeat(3, 1fr); }
     .stat-card { background: #f8f9fa; border-radius: 8px; padding: 10px; text-align: center; }
     .stat-card .stat-value { font-size: 17px; font-weight: 700; color: #333; }
     .stat-card .stat-label { font-size: 11px; color: #888; margin-top: 2px; }
@@ -660,7 +667,9 @@ function generateReport(allReviews, baseDate, dateRanges) {
       .summary-card { padding: 10px 4px; }
       .summary-card .value { font-size: 18px; }
       .summary-card .label { font-size: 10px; }
-      .store-stats { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .store-stats-row { gap: 6px; }
+      .store-stats-row-1 { grid-template-columns: repeat(2, 1fr); }
+      .store-stats-row-2 { grid-template-columns: repeat(3, 1fr); }
       .stat-card { padding: 8px 4px; }
       .review-item { padding: 10px 12px; }
       th, td { padding: 6px 4px !important; font-size: 12px; }
