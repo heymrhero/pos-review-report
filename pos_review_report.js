@@ -468,7 +468,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     '    .period-hint { font-size: 12px; color: #aaa; margin-bottom: 16px; }\n' +
     '    .tab-content { display: none; }\n' +
     '    .tab-content.show { display: block; }\n' +
-    '    .summary-row { display: grid; gap: 12px; margin-bottom: 10px; }\n' +\n    '    .summary-row-1 { grid-template-columns: repeat(2, 1fr); }\n' +\n    '    .summary-row-2 { grid-template-columns: repeat(3, 1fr); }\n' +\n    '    .summary-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center;\n' +\n    '     box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n' +\n    '    .summary-card .label { font-size: 11px; color: #888; margin-top: 2px; }\n' +
+    '    .summary-row { display: grid; gap: 12px; margin-bottom: 10px; }\n' +\n    '    .summary-row-1 { grid-template-columns: repeat(2, 1fr); }\n' +\n    '    .summary-row-2 { grid-template-columns: repeat(3, 1fr); }\n' +\n    '    .summary-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }\n' +\n    '    .summary-card .label { font-size: 11px; color: #888; margin-top: 2px; }\n' +
     '    .summary-card.card-positive .value { color: #52c41a; }\n' +
     '    .summary-card.card-neutral .value { color: #faad14; }\n' +
     '    .summary-card.card-negative .value { color: #ff4d4f; }\n' +
