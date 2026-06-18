@@ -46,7 +46,7 @@ const STORES = [
 
 // ============ 参数解析 ============
 const args = process.argv.slice(2);
-let targetDate = new Date().toISOString().split('T')[0];
+let targetDate = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Shanghai' });
 let outputPath = null;
 
 for (let i = 0; i < args.length; i++) {
@@ -63,13 +63,16 @@ console.log(`输出路径: ${outputPath}\n`);
 
 // ============ 日期范围 ============
 function getDateRanges(baseDateStr) {
-  const today = new Date(baseDateStr + 'T00:00:00');
-  const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
-  const day7Ago = new Date(today); day7Ago.setDate(today.getDate() - 7);
-  const day30Ago = new Date(today); day30Ago.setDate(today.getDate() - 30);
-  const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
-  const fmt = d => d.toISOString().split('T')[0];
-  const prevDay = fmt(new Date(today.getTime() - 86400000));
+  // baseDateStr 已是北京时间（如 '2026-06-18'），创建北京时间午夜
+  const today = new Date(baseDateStr + 'T00:00:00+08:00');
+  const yesterday = new Date(today.getTime() - 86400000);
+  const day7Ago = new Date(today.getTime() - 7 * 86400000);
+  const day30Ago = new Date(today.getTime() - 30 * 86400000);
+  // 本月1号也用北京时间
+  const d = new Date(baseDateStr + 'T00:00:00+08:00');
+  const monthStart = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1));
+  const fmt = d => new Date(d.getTime() + 8 * 3600000).toISOString().split('T')[0];
+  const prevDay = fmt(yesterday);
   return {
     yesterday: { start: fmt(yesterday), end: fmt(yesterday), label: '昨日' },
     last7:     { start: fmt(day7Ago),   end: prevDay, label: '最近7天' },
@@ -659,7 +662,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     </div>
     <div class="tab-nav">${tabBtnsHtml}</div>
     ${tabContentsHtml}
-    <div class="footer">报表自动生成于 ${new Date().toLocaleString('zh-CN')}<br>数据来源：胡岩的龙虾Bot</div>
+    <div class="footer">报表自动生成于 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}<br>数据来源：胡岩的龙虾Bot</div>
   </div>
   <script>
     function switchTab(event, key) {
