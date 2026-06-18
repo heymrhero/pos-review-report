@@ -209,7 +209,7 @@ function inRange(addTime, start, end) {
           mealStyle: r.meal_style === '0' ? '堂食' : r.meal_style === '1' ? '外卖' : r.meal_style === '2' ? '自取' : '其他',
           anonymous: r.anonymous === '1',
           hidden: r.hide === '1',
-          pics: r.pics ? `https://zhyx-images.eingdong.com/${r.pics}` : '',
+          pics: r.pics ? String(r.pics).split(',').map(p => `https://zhyx-images.eingdong.com/${p.trim()}`) : [],
           goodsList: (r.goods_list || []).map(g => g.title),
           reply: r.reply
         })),
@@ -449,7 +449,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
     const starClass = review.starOverall >= 4 ? 'stars-good' : review.starOverall >= 3 ? 'stars-ok' : 'stars-bad';
     const goodsTags = review.goodsList.map(g => `<span class="goods-tag">${g}</span>`).join('');
     const replyHtml = review.reply ? `<div class="reply"><strong>商家回复：</strong>${review.reply}</div>` : '';
-    const picHtml = review.pics ? `<div class="review-pic"><img src="${review.pics}" alt="评价图片" loading="lazy" referrerpolicy="no-referrer"></div>` : '';
+    const picHtml = review.pics && review.pics.length > 0 ? `<div class="review-pic">${review.pics.map(p => `<img src="${p}" alt="评价图片" loading="lazy" referrerpolicy="no-referrer">`).join('')}</div>` : '';
     return `
       <div class="review-item ${review.starOverall <= 2 ? 'review-negative' : ''}">
         <div class="review-header">
