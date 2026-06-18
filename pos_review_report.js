@@ -54,7 +54,7 @@ for (let i = 0; i < args.length; i++) {
   if (args[i] === '--output' && args[i + 1]) { outputPath = args[i + 1]; i++; }
 }
 if (!outputPath) {
-  outputPath = path.join('/Users/huwenming/WorkBuddy/2026-06-07-12-07-58', `review_report_${targetDate}.html`);
+  outputPath = path.join(process.cwd(), `review_report_${targetDate}.html`);
 }
 
 console.log(`\n========== 评价报表生成 ==========`);
@@ -240,6 +240,7 @@ function inRange(addTime, start, end) {
     const dateRanges = getDateRanges(targetDate);
     const reportHtml = generateReport(allReviews, targetDate, dateRanges);
 
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, reportHtml, 'utf-8');
     console.log(`✓ 报表已生成: ${outputPath}`);
 
