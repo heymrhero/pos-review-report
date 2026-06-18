@@ -263,10 +263,16 @@ function inRange(addTime, start, end) {
       console.log(`[${range.label}] 总评价: ${total}  好评: ${positive}  差评: ${negative}`);
     }
 
-    // 推送到企业微信群（如果配置了环境变量）
+    // 推送到企业微信群（如果配置了环境变量，且北京时间 8:00-11:00 才推送）
   if (WECOM_WEBHOOK && COS_BASE_URL) {
-    console.log('\n--- 推送企业微信 ---');
-    await pushToWecom(allReviews, targetDate, dateRanges, outputPath);
+    const bjHour = new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai', hour: 'numeric', hour12: false });
+    const hour = parseInt(bjHour, 10);
+    if (hour >= 8 && hour <= 11) {
+      console.log('\n--- 推送企业微信 ---');
+      await pushToWecom(allReviews, targetDate, dateRanges, outputPath);
+    } else {
+      console.log(`\n--- 跳过企业微信推送（北京时间${hour}点，仅在8-11点推送）---`);
+    }
   }
 
   // 上传到 COS（如果配置了密钥）
