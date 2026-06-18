@@ -489,7 +489,10 @@ function generateReport(allReviews, baseDate, dateRanges) {
 
       storeBlocks.push(`
         <div class="store-section">
-          <h2 class="store-title">${data.storeInfo.name}</h2>
+          <div class="store-header" onclick="toggleStore(this)">
+            <h2 class="store-title">${data.storeInfo.name}</h2>
+            <span class="store-toggle">点击展开 ▾</span>
+          </div>
           <div class="store-stats">
             <div class="stat-card"><div class="stat-value">${s.total}</div><div class="stat-label">评价总数</div></div>
             <div class="stat-card stat-good"><div class="stat-value">${s.positive}</div><div class="stat-label">好评</div></div>
@@ -497,7 +500,7 @@ function generateReport(allReviews, baseDate, dateRanges) {
             <div class="stat-card stat-bad"><div class="stat-value">${s.negative}</div><div class="stat-label">差评</div></div>
             <div class="stat-card"><div class="stat-value">${s.avgRating}</div><div class="stat-label">平均评分</div></div>
           </div>
-          <div class="reviews-list">${reviewsHtml}</div>
+          <div class="reviews-list" style="display:none">${reviewsHtml}</div>
         </div>`);
     }
 
@@ -615,7 +618,11 @@ function generateReport(allReviews, baseDate, dateRanges) {
     .summary-card.card-negative .value { color: #ff4d4f; }
     .summary-card.card-rating .value { color: #faad14; }
     .store-section { background: white; border-radius: 10px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .store-title { font-size: 15px; color: #222; margin-bottom: 4px; }
+    .store-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; padding-bottom: 8px; }
+    .store-header:hover .store-toggle { color: #4a5a2e; }
+    .store-title { font-size: 15px; color: #222; margin: 0; }
+    .store-toggle { font-size: 12px; color: #636E4B; white-space: nowrap; flex-shrink: 0; transition: color 0.2s; }
+    .store-section.expanded .store-header { padding-bottom: 4px; }
     .store-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
     .stat-card { background: #f8f9fa; border-radius: 8px; padding: 10px; text-align: center; }
     .stat-card .stat-value { font-size: 17px; font-weight: 700; color: #333; }
@@ -676,6 +683,20 @@ function generateReport(allReviews, baseDate, dateRanges) {
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
       document.getElementById('tab-' + key).classList.add('show');
       event.target.classList.add('active');
+    }
+    function toggleStore(header) {
+      var section = header.parentElement;
+      var list = section.querySelector('.reviews-list');
+      var toggle = header.querySelector('.store-toggle');
+      if (list.style.display === 'none') {
+        list.style.display = 'block';
+        toggle.textContent = '点击收起 ▴';
+        section.classList.add('expanded');
+      } else {
+        list.style.display = 'none';
+        toggle.textContent = '点击展开 ▾';
+        section.classList.remove('expanded');
+      }
     }
     document.getElementById('tab-yesterday').classList.add('show');
   </script>
