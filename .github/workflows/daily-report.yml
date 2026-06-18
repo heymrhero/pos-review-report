@@ -27,6 +27,8 @@ jobs:
           POS_PASSWORD: ${{ secrets.POS_PASSWORD }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
           COS_BASE_URL: ${{ secrets.COS_BASE_URL }}
+          COS_SECRET_ID: ${{ secrets.COS_SECRET_ID }}
+          COS_SECRET_KEY: ${{ secrets.COS_SECRET_KEY }}
         run: node pos_review_report.js
 
       - uses: actions/upload-artifact@v4
