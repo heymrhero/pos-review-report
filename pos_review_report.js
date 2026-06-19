@@ -265,13 +265,15 @@ function inRange(addTime, start, end) {
 
     // 推送到企业微信群（如果配置了环境变量，且北京时间 8:00-11:00 才推送）
   if (WECOM_WEBHOOK && COS_BASE_URL) {
-    const bjHour = new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai', hour: 'numeric', hour12: false });
-    const hour = parseInt(bjHour, 10);
-    if (hour >= 8 && hour <= 11) {
+    // 可靠获取北京时间小时数
+    const now = new Date();
+    const bjMs = now.getTime() + 8 * 3600 * 1000;
+    const bjHour = new Date(bjMs).getUTCHours();
+    if (bjHour >= 8 && bjHour <= 11) {
       console.log('\n--- 推送企业微信 ---');
       await pushToWecom(allReviews, targetDate, dateRanges, outputPath);
     } else {
-      console.log(`\n--- 跳过企业微信推送（北京时间${hour}点，仅在8-11点推送）---`);
+      console.log(`\n--- 跳过企业微信推送（北京时间${bjHour}点，仅在8-11点推送）---`);
     }
   }
 
