@@ -1,8 +1,10 @@
 name: 每日英雄评价日报
 
 on:
-  schedule:
-    - cron: '30 1 * * *'
+  # 由 cron-job.org 每天北京时间 9:30 触发 workflow_dispatch
+  # 内置 schedule 已禁用，避免与外部触发重复
+  # schedule:
+  #   - cron: '30 1 * * *'
   workflow_dispatch:
 
 jobs:
